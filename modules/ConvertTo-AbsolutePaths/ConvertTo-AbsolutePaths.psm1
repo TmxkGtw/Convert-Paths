@@ -30,6 +30,8 @@ function ConvertTo-AbsolutePaths{
         [Switch]   $RealPathsOnly
     )
 
+    [System.IO.Directory]::SetCurrentDirectory($(Get-Location))
+
     if($RealPathsOnly){
         return $(Resolve-Path -LiteralPath $RelativePaths);
     }
