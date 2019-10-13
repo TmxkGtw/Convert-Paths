@@ -1,4 +1,8 @@
+# Category 1 : Files which are not plain texts must be ignored.
 *.pdf
 *.doc
 *.docx
 *.zip
+
+# Category 2 : Files which are used to produce Category 1 files also must be ignored.
+UsageGuide.md
