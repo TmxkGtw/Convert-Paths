@@ -129,4 +129,4 @@ function ConvertTo-AbsolutePaths{
     );
 }
 
-Export-ModuleMember -Function *;
+Export-ModuleMember -Function * -Cmdlet * -Alias *;
