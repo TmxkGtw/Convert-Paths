@@ -35,6 +35,7 @@ function ConvertTo-RelativePaths{
         PS C:\sample> $(Get-ChildItem)|ConvertTo-RelativePaths    
     #>
 
+    [Alias("relpath")]
     [OutputType([String[]])]
     [CmdletBinding()]
     param(
@@ -69,7 +70,7 @@ function ConvertTo-RelativePaths{
                 if($rawRelativePath -match "[^.\\/]*\.[^.\\/]+"){
                     $rawRelativePath
                 }else{
-                    $rawRelativePath + "\"
+                    "${rawRelativePath}\"
                 }
             }
         );
@@ -106,11 +107,14 @@ function ConvertTo-AbsolutePaths{
             PS C:\sample> ConvertTo-AbsolutePaths -RelativePaths ./aaa.txt -RealPathsOnly
     #>
 
+    [Alias("abspath")]
     [CmdletBinding()]
     [OutputType([String[]])]
     param(
         [ValidateNotNullOrEmpty()]
+        [Parameter(ValueFromPipeline)]
         [String[]] $RelativePaths,
+
         [Switch]   $RealPathsOnly
     )
 
